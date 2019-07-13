@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -9,15 +10,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Codystar&display=swap" rel="stylesheet">
     <title>Trivia Game</title>
 </head>
 <body>
-
     <header class="page-header">
-            <h1>Trivia Game</h1>
+        <div id="headerWrapper">
+            <div id="headerTitleWrapper"><a href="./index.html" style="text-decoration:none"><h1 class="btnHover">Trivia Game</h1></a></div>
+            <div id="headerControlsWrapper"><button id="bgmToggle">Music On/Off</button></div>
+        </div>
     </header>
 
-    <main class="page-content d-flex">
+    <main class="page-content">
 
         <!-- <nav class="content-navigation">
             <h1>Nav</h1>
@@ -31,37 +35,38 @@
                 <!-- START SCREEN -->
                 <div id="startScreenWrapper" style="display: contents;">
                     <button class="btn-lg btn-outline-info" id="btn_start">START</button>
-                </div> <!-- END START SCREEN -->
-
+                </div>
                 <!-- SELECTION SCREEN -->
-                <div id="selectionScreenWrapper" style="display: none;">
+                <div id="selectionScreenWrapper" style="display: none;">               
                 <!-- Question card wrapper -->
-                <div class="d-flex row justify-content-center text-center" id="selectionCard">
-                    <h1 class="text-left" id="">Select a quiz category!</h1>
+                <div class="" id="selectionCard">
+                    <h1 class="" id="">Select a quiz category!</h1>
                     <ul id="selectionList">
-                        <li class="btnHover clickable" id="selection0" value="0"><a></a><span>History</span></li>
-                        <li class="btnHover clickable" id="selection0" value="1"><a></a><span>Culture</span></li>
-                        <li class="btnHover clickable" id="selection0" value="2"><a></a><span>Science</span></li>
+                        <li class="btnHover clickable" id="selection0" value="9"><a></a><span>General Knowledge</span></li>
+                        <li class="btnHover clickable" id="selection1" value="18"><a></a><span>Computers</span></li>
+                        <li class="btnHover clickable" id="selection2" value="23"><a></a><span>History</span></li>
+                        <li class="btnHover clickable" id="selection3" value="22"><a></a><span>Geography</span></li>
+                        <li class="btnHover clickable" id="selection4" value="21"><a></a><span>Sports</span></li>
                     </ul>
                 </div>
-                    <button class="btn-lg btn-outline-info" id="btn_select">LET'S PLAY</button>
-                </div> <!-- END SELECTION SCREEN -->
+                </div>
 
 
                 <!-- QUESTION SCREEN -->
                 <div class="" id="qScreenWrapper" style="display: none;">
-
                     <!-- Question card wrapper -->
-                    <div class="d-flex row justify-content-center text-center" id="qCard">
+                    <div class="" id="qCard">
                             <h1 class="text-left" id="question"></h1>
                             <ul id="optionList">
                                 <li class="btnHover clickable" id="option0" value="0"><a></a><span></span></li>
                                 <li class="btnHover clickable" id="option1" value="1"><a></a><span></span></li>
                                 <li class="btnHover clickable" id="option2" value="2"><a></a><span></span></li>
+                                <li class="btnHover clickable" id="option3" value="3"><a></a><span></span></li>
                             </ul>
+                            <h3 id="qCategoryTag"></h3>
                     </div>
 
-                </div> <!-- END QUESTION SCREEN -->
+                </div>
         
         
                 <!-- GAME OVER SCREEN -->
@@ -69,23 +74,23 @@
                     <h1 id="endMessage"></h1>
                     <h1 id="endScore"></h1>
                     <button class="btn-lg btn-outline-info" id="btn_restart">Play Again!</button>
-                </div> <!-- END GAME OVER SCREEN -->
+                </div>
 
         
         </article>
 
-        <aside class="content-aside" id="counterWrapper" style="display: none;">
+        <!-- <aside class="content-aside" id="counterWrapper" style="display: none;">
             <h1 class="text-center" id="counter">
                 30
             </h1>
             <h2 class="text-center">
                 seconds remaining
             </h2>
-        </aside>
+        </aside> -->
 
     </main>
 
-    <footer class="page-footer" id="footer">
+    <footer class="page-footer" id="footer" style="display: none;">
         <h1></h1>
         <!-- Progress bar -->
         <div class="">
@@ -95,6 +100,14 @@
             </div>
         </div>
     </footer>
+
+    <audio id="sfx">
+        <source src="./assets/audio/compass_click_close.mp3"></source>
+    </audio>
+
+    <audio id="bgm">
+        <source src="./assets/audio/bensound-erf.mp3"></source>
+    </audio>
 
 </body>
 </html>
