@@ -5,10 +5,12 @@ let winCount = 0;
 let lossCount = 0;
 let questionSet = [];
 let timeRemaining = 30;
+let levelDifficulty = 0;
 let apiQueryCatNum = 0;
 let ajaxResponse = [];
 let unshuffled = [];
 let shuffled = [];
+let encoded =[];
 
 const maxTime = 30;
 const questionCount = 10;
@@ -22,9 +24,14 @@ const endMsgFail ="Oops! Your score was:";
 $(document).ready(function() {
     enableSfx()
     enableBgm()
-    $("#btn_start").click(gameLaunch)
-    // $("#btn_restart").click(restartGame)
+    $("#startList > li").click(function() {
+        levelDifficulty = this.value;
+        gameLaunch();
+        return levelDifficulty;
+    })//end click listener
 })
+
+
 
 function gameLaunch() {
     hideId("#startScreenWrapper")
@@ -47,7 +54,7 @@ function gameLaunch() {
 
 function queryAPI() {
 
-    let queryURL = `https://opentdb.com/api.php?amount=${questionCount}&category=${apiQueryCatNum}&difficulty=easy&type=multiple`
+    let queryURL = `https://opentdb.com/api.php?amount=${questionCount}&category=${apiQueryCatNum}&difficulty=${levelDifficulty}&type=multiple`
 
     $.ajax({
     url: queryURL,
@@ -116,12 +123,12 @@ function nextCard() {
 function populateQuizCard() {
     if (i < ajaxResponse[0].results.length) {
         shuffleQuestions();
-        $("#question").text(`${ajaxResponse[0].results[i].question}`)
-        $("#option0").text(shuffled[0])
-        $("#option1").text(shuffled[1])
-        $("#option2").text(shuffled[2])
-        $("#option3").text(shuffled[3])
-        $("#qCategoryTag").text(ajaxResponse[0].results[i].category)
+        $("#question").html(`${ajaxResponse[0].results[i].question}`)
+        $("#option0").html(shuffled[0])
+        $("#option1").html(shuffled[1])
+        $("#option2").html(shuffled[2])
+        $("#option3").html(shuffled[3])
+        $("#qCategoryTag").html(ajaxResponse[0].results[i].category)
     }//end if
     else {
         gameOver()
@@ -148,7 +155,6 @@ function shuffleQuestions() {
 function updateProgressBar() {
     $("#progressBar").css({"width": (i/ajaxResponse[0].results.length)*100 +"%"});
     $("#progressPrompt").html(`${ajaxResponse[0].results.length-i} out of ${ajaxResponse[0].results.length} questions remaining`)
-
 }
 
 function startTimer() {
@@ -181,9 +187,9 @@ function gameOver() {
     else {
         $("#endMessage").text(endMsgFail)         
     }
+    sfxWinSound()
     $("#endScore").text(`${winCount}/${ajaxResponse[0].results.length}`)      
 }
-
 
 //---SHOW/HIDE FUNCTIONS---
 function showId(selector) {
@@ -220,10 +226,18 @@ function bounceIn() {
     function() {
         $(this).removeClass("bounceIn")
     })
+    $("#startCard").addClass("bounceIn").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", 
+    function() {
+        $(this).removeClass("bounceIn")
+    })
 };
 
 function bounceOut() {
     $("#selectionCard").addClass("bounceOut").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", 
+    function() {
+        $(this).removeClass("bounceOut")
+    })
+    $("#startCard").addClass("bounceOut").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", 
     function() {
         $(this).removeClass("bounceOut")
     })
@@ -247,6 +261,10 @@ let bgmPlaying = false;
             $("#bgm")[0].pause()            
         }
 });
+};
+
+function sfxWinSound() {
+    $("#sfxWin")[0].play()
 };
 
 // var clickSfx = $("#sfx")[1];

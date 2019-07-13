@@ -23,10 +23,6 @@
     </header>
 
     <main class="page-content">
-
-        <!-- <nav class="content-navigation">
-            <h1>Nav</h1>
-        </nav> -->
         
         <!-- ARTICLE WRAPPER -->
         <article class="content-article">
@@ -34,10 +30,29 @@
             <!-- GAME SCREENS -->
 
                 <!-- START SCREEN -->
-                <div id="startScreenWrapper" style="display: contents;">
+                <!-- <div id="startScreenWrapper" style="display: contents;">
                     <div><span class="text-center" id="appInstructions">How to:</span>
                         <br>
                     <button class="btn-lg btn-outline-info btnSound" id="btn_start">START</button></div>
+                </div> -->
+
+                <!-- SELECTION SCREEN -->
+                <div id="startScreenWrapper" style="display: contents;">               
+                <!-- Question card wrapper -->
+                <div class="" id="startCard">
+                    <h1 class="" id="">How to play:</h1>
+                    <div><span>
+                        <br>
+                        Select a difficulty level then pick a quiz category<br>
+                        You have 30 seconds to answer each question (total of 10)<br>
+                        <br>
+                    </span></div>
+                    <ul id="startList">
+                        <li class="selectionHover btnSound clickable" id="selection2" value="easy"><a></a><span>Easy</span></li>
+                        <li class="selectionHover btnSound clickable" id="selection3" value="medium"><a></a><span>Medium</span></li>
+                        <li class="selectionHover btnSound clickable" id="selection4" value="hard"><a></a><span>Challenge</span></li>
+                    </ul>
+                </div>
                 </div>
 
                 <!-- SELECTION SCREEN -->
@@ -83,7 +98,6 @@
                     <button class="btn-lg btn-outline-info btnSound" id="btn_restart">Play Again!</button>
                 </div>
 
-        
         </article>
 
         <!-- <aside class="content-aside" id="counterWrapper" style="display: none;">
@@ -110,9 +124,13 @@
     <audio id="sfxClick">
         <source src="./assets/audio/compass_click_close.mp3"></source>
     </audio>
+    
+    <audio id="sfxWin">
+        <source src="./assets/audio/little_robot_sound_factory_Jingle_Win_Synth_03.mp3"></source>
+    </audio>
 
     <audio id="bgm">
-        <source src="./assets/audio/bensound-creativeminds.mp3"></source>
+        <source src="./assets/audio/zapsplat_as_time_passes.mp3"></source>
     </audio>
 
 </body>
