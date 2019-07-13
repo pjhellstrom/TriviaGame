@@ -34,7 +34,6 @@ function gameLaunch() {
         apiQueryCatNum = this.value;
         queryAPI();
         bounceOut();
-        debugger;
         setTimeout(mainGame, 700);
         setTimeout(swoopIn, 700);
         return apiQueryCatNum;
@@ -161,10 +160,10 @@ function countDown() {
         timeRemaining--;
     }
     else {clearInterval(timeRemaining)
-        $("#counter").css("color", "#333");
+        $("#counter").css("color", "#555");
     }
     if (timeRemaining < 10) {
-        $("#counter").css("color", "#B00020");
+        $("#counter").css("color", "#ff5a36");
     }
     $("#counter").text(timeRemaining);
 }
@@ -210,18 +209,10 @@ function cardAnimation() {
 
 function swoopIn() {
     $("#qCard").addClass("bounceInLeft")
-    // .one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", 
-    // function() {
-    //     $(this).removeClass("bounceInLeft")
-    // })
 };
 
 function swoopOut() {
     $("#qCard").addClass("bounceOutRight")
-    // .one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", 
-    // function() {
-    //     $(this).removeClass("bounceOutRight")
-    // })
 };
 
 function bounceIn() {
@@ -239,9 +230,11 @@ function bounceOut() {
 };
 
 function enableSfx() {
-    $(".btnHover").mouseenter(function() {
-        $("#sfx")[0].play()
-})};
+    $(".btnSound").mouseenter(function() {
+        $("#sfxHover")[0].play()});
+    $(".btnSound").click(function() {
+        $("#sfxClick")[0].play()})
+};
 
 function enableBgm() {
 let bgmPlaying = false;

@@ -29,6 +29,9 @@ header {
   display: flex;
   flex:1;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 #headerTitleWrapper {
@@ -44,6 +47,11 @@ header {
 #headerControlsWrapper {
   align-items: flex-end;
   justify-items: flex-end;
+}
+
+#headerCommentsWrapper{
+  max-width: 200px;
+  font-size: 9pt;
 }
 
 nav {
@@ -64,21 +72,19 @@ article {
   display: flex;
   flex: 1;
 }
-#startScreenWrapper button {
+
+#startScreenWrapper {
   display: flex;
-  flex-direction: column;
   flex: 1;
-  justify-content: center;
-  border: 5px solid red;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
   background-color: rgb(245, 245, 245);
 }
-#startScreenWrapper button {
-  max-width: 100px;
-  max-height: 50px;
-  position: relative;
-  border: 5px solid greenyellow;
-  background-color: rgb(245, 245, 245);
-}
+
+
+
+
 #selectionScreenWrapper {
   display: flex;
   flex: 1;
@@ -122,8 +128,9 @@ header h1, footer h1 {
 }
 
 header h1 {
-  font-family: 'Codystar', cursive;
-  font-size: 450%;
+  font-family: 'DM Serif Display', serif;
+  font-weight: bold;
+  font-size: 35pt;
 }
 
 @media screen and (max-width: 600px) {
@@ -144,22 +151,28 @@ header h1 {
 #qCard, #selectionCard {
   flex-direction: column;
   flex: 1;
-  height: 70%;
-  margin: 10%;
+  position: relative;
+  margin: 2.5%;
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 #qCard h1, #selectionCard h1 {
-  height:20%;
   padding: 2.5%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   background-color: #00D68F;
   font-weight: bold;
+  font-size: 22pt;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   color: white;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 #selectionCard h1 {
@@ -171,39 +184,70 @@ header h1 {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  height: 65%;
+  /* height: 65%; */
   list-style: none;
   text-align: center;
-  font-size: 250%;
+  font-size: 22pt;
   font-weight: bold;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   color: #444;
 }
 
 #qCard li, #selectionCard li {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   cursor: pointer;
 }
 
 #qCategoryTag {
   position: absolute;
   list-style: none;
-  font-size: 200%;
-  margin-left: 50px;
+  font-size: 20pt;
+  margin-left: 30px;
   font-weight: bold;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   color: #777;
 }
 
+#counterWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.10);
+  bottom: 25%;
+  right: 45px;
+  font-weight: bold;
+}
+
+#timerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#timerWrapper {
+  font-size: 35pt;
+}
+
+#timerRef {
+  font-size: 12pt;
+  margin-bottom: 5px;
+  color: #555;
+}
+
 /* ----------------------------------------------- */
 
-/* Progress */
-
 #progressWrapper {
-  height: 15px; 
+  height: 15px;
   margin-left:10%; 
   margin-right:10%; 
   margin-bottom:5%;
@@ -217,22 +261,7 @@ header h1 {
 #progressPrompt {
   font-weight: bold;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.10);
-}
-
-/* Counter */
-
-#counterWrapper {
-  align-self: center;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.10);
-  margin-right: 70px;
-}
-
-#counterWrapper h1 {
-  font-weight: 800;
-  font-size: 8rem;
-  /* background-color: #FFA902; */
-  border-radius: 50%;
-  height: 175px;
+  color: #555;
 }
 
 /* ----------------------------------------------- */
