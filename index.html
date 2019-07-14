@@ -17,8 +17,8 @@
     <header class="page-header">
         <div id="headerWrapper">
             <div id="headerTitleWrapper"><a href="./index.html" class="btnSound" style="text-decoration:none"><h1 >It's Quiz Time!</h1></a></div>
-            <div id="headerControlsWrapper"><button class="btn-sm btn-outline-info btnSound" id="bgmToggle">Music On/Off</button></div>
-            <div id="headerCommentsWrapper"><span style="font-weight:200;">Quiz data from Open Trivia DB, sounds obtained from Zapsplat</span></div>
+            <!-- <div id="headerControlsWrapper"><button class="btn-sm btn-outline-info btnSound" id="bgmToggle">Music On/Off</button></div> -->
+            <div id="headerCommentsWrapper"><span style="font-weight:200;">Quiz data from Open Trivia DB API <br>SFX: Zapsplat | BGM: Bensound</span></div>
         </div>
     </header>
 
@@ -30,13 +30,6 @@
             <!-- GAME SCREENS -->
 
                 <!-- START SCREEN -->
-                <!-- <div id="startScreenWrapper" style="display: contents;">
-                    <div><span class="text-center" id="appInstructions">How to:</span>
-                        <br>
-                    <button class="btn-lg btn-outline-info btnSound" id="btn_start">START</button></div>
-                </div> -->
-
-                <!-- SELECTION SCREEN -->
                 <div id="startScreenWrapper" style="display: contents;">               
                 <!-- Question card wrapper -->
                 <div class="" id="startCard">
@@ -44,30 +37,30 @@
                     <div><span>
                         <br>
                         Select a difficulty level then pick a quiz category<br>
-                        You have 30 seconds to answer each question (total of 10)<br>
+                        You have 15 seconds to answer each question (total of 10)<br>
                         <br>
                     </span></div>
                     <ul id="startList">
-                        <li class="selectionHover btnSound clickable" id="selection2" value="easy"><a></a><span>Easy</span></li>
-                        <li class="selectionHover btnSound clickable" id="selection3" value="medium"><a></a><span>Medium</span></li>
-                        <li class="selectionHover btnSound clickable" id="selection4" value="hard"><a></a><span>Challenge</span></li>
+                        <li class="selectionHover btnSound clickable" id="easy"><span>Easy</span></li>
+                        <li class="selectionHover btnSound clickable" id="medium"><span>Medium</span></li>
+                        <li class="selectionHover btnSound clickable" id="hard"><span>Challenge</span></li>
                     </ul>
                 </div>
                 </div>
 
                 <!-- SELECTION SCREEN -->
                 <div id="selectionScreenWrapper" style="display: none;">               
-                <!-- Question card wrapper -->
-                <div class="" id="selectionCard">
-                    <h1 class="" id="">Select a quiz category!</h1>
-                    <ul id="selectionList">
-                        <li class="btnHover btnSound clickable" id="selection0" value="9"><a></a><span>General Knowledge</span></li>
-                        <li class="btnHover btnSound clickable" id="selection1" value="18"><a></a><span>Computers</span></li>
-                        <li class="btnHover btnSound clickable" id="selection2" value="23"><a></a><span>History</span></li>
-                        <li class="btnHover btnSound clickable" id="selection3" value="22"><a></a><span>Geography</span></li>
-                        <li class="btnHover btnSound clickable" id="selection4" value="21"><a></a><span>Sports</span></li>
-                    </ul>
-                </div>
+                    <!-- Question card wrapper -->
+                    <div class="" id="selectionCard">
+                        <h1 class="" id="">Select a quiz category!</h1>
+                        <ul id="selectionList">
+                            <li class="selectionHover2 btnSound clickable" id="selection0" value="9"><a></a><span>General Knowledge</span></li>
+                            <li class="selectionHover2 btnSound clickable" id="selection1" value="18"><a></a><span>Computers</span></li>
+                            <li class="selectionHover2 btnSound clickable" id="selection2" value="23"><a></a><span>History</span></li>
+                            <li class="selectionHover2 btnSound clickable" id="selection3" value="22"><a></a><span>Geography</span></li>
+                            <li class="selectionHover2 btnSound clickable" id="selection4" value="21"><a></a><span>Sports</span></li>
+                        </ul>
+                    </div>
                 </div>
 
 
@@ -75,48 +68,72 @@
                 <div class="" id="qScreenWrapper" style="display: none;">
                     <!-- Question card wrapper -->
                     <div class="" id="qCard">
-                            <h1 class="text-left" id="question"></h1>
-                            <ul id="optionList">
-                                <li class="btnHover btnSound clickable" id="option0" value="0"><a></a><span></span></li>
-                                <li class="btnHover btnSound clickable" id="option1" value="1"><a></a><span></span></li>
-                                <li class="btnHover btnSound clickable" id="option2" value="2"><a></a><span></span></li>
-                                <li class="btnHover btnSound clickable" id="option3" value="3"><a></a><span></span></li>
-                            </ul>
-                            <h3 id="qCategoryTag"></h3>
+                            <div id="idCardHeaderWrapper">
+                                <h1 class="text-left" id="question"></h1>
+                            </div>
+                            <div id="idCardOptionsWrapper">
+                                <ul id="optionList">
+                                    <li class="btnHover btnSound" id="option0" value="0"><a></a><span></span></li>
+                                    <li class="btnHover btnSound" id="option1" value="1"><a></a><span></span></li>
+                                    <li class="btnHover btnSound" id="option2" value="2"><a></a><span></span></li>
+                                    <li class="btnHover btnSound" id="option3" value="3"><a></a><span></span></li>
+                                </ul>
+                            </div>
+                            <div id="qCardBtmWrapper">
+                                <div id="categoryTagWrapper"><h3 id="qCategoryTag"></h3></div>
+                                <div id="counterWrapper">
+                                    <div id="timerWrapper"><span class="text-center" id="counter">15</span></div>
+                                    <span class="text-center" id="timerRef">seconds remaining</span>
+                                </div>
+                            </div>
                     </div>
-                    <div id="counterWrapper">
-                        <div id="timerWrapper"><span class="text-center" id="counter">30</span></div>
-                        <span class="text-center" id="timerRef">seconds remaining</span>
+                    <div id="revealAnswerWrapper" style="display: none;">
+                        <div id="revealAnswerCard">
+                                <a><i class="fas fa-check" id="revealAnswerIcon"></i></a>
+                        </div>
+                        <div class="" id="revealAnswerText"><span id="answerHere">Answer Here</span></div>
                     </div>
+
                 </div>
         
         
-                <!-- GAME OVER SCREEN -->
+                <!-- GAME OVER SCREEN
                 <div class="text-center" id="endScreenWrapper" style="display: none;">
                     <h1 id="endMessage"></h1>
                     <h1 id="endScore"></h1>
                     <button class="btn-lg btn-outline-info btnSound" id="btn_restart">Play Again!</button>
+                </div> -->
+
+                <!-- END SCREEN -->
+                <div id="endScreenWrapper" style="display: none;">               
+                <!-- Question card wrapper -->
+                <div class="" id="endCard">
+                    <h1 id="endMessage"></h1>
+                    <span id="endScore"></span>     
+                    <div id="scoreSummaryWrapper"></div>               
+                    <!-- <ul id="">
+                        <li class="selectionHover btnSound clickable" id="restartBtn"><a></a><span>Play</span></li>
+                    </ul> -->
+                </div>
                 </div>
 
         </article>
-
-        <!-- <aside class="content-aside" id="counterWrapper" style="display: none;">
-
-        </aside> -->
 
     </main>
 
     <footer class="page-footer" id="footer" style="display: none;">
         <h1></h1>
         <!-- Progress bar -->
-        <div class="">
+        <div id="progressBarWrapper">
             <h2 class="text-center" id="progressPrompt"></h2>
             <div class="progress" id="progressWrapper">
-                <div class="progress-bar bg-primary" id="progressBar" style=""></div>
+                <div class="progress-bar bg-primary" id="progressBar"></div>
             </div>
         </div>
     </footer>
 
+
+    <!-- SFX -->
     <audio id="sfxHover">
         <source src="./assets/audio/cartoon_pop_pull_out.mp3"></source>
     </audio>
@@ -129,8 +146,16 @@
         <source src="./assets/audio/little_robot_sound_factory_Jingle_Win_Synth_03.mp3"></source>
     </audio>
 
+    <audio id="sfxLose">
+        <source src="./assets/audio/ping_twang.mp3"></source>
+    </audio>
+
+    <audio id="sfxEnd">
+        <source src="./assets/audio/fanfare_tataa_short.mp3"></source>
+    </audio>
+
     <audio id="bgm">
-        <source src="./assets/audio/zapsplat_as_time_passes.mp3"></source>
+        <source src="./assets/audio/bensound-enigmatic.mp3"></source>
     </audio>
 
 </body>
