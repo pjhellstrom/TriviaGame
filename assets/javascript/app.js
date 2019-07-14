@@ -31,7 +31,7 @@ $(document).ready(function() {
 })
 
 function selectionLaunch() {
-    hideId("#startScreenWrapper")
+    removeId("#startScreenWrapper")
     showId("#selectionScreenWrapper")
     bounceIn()
     //Selection input triggers question screen
@@ -211,6 +211,9 @@ function showId(selector) {
 };
 function hideId(selector) {
     $(selector).hide()
+};
+function removeId(selector) {
+    $(selector).remove()
 };
 
 //---RESET VARIABLE
