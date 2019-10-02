@@ -1,19 +1,21 @@
 # Trivia Game
-
-- Trivia game leveraging the Open Trivia DB API to generate question cards and using JavaScript logic and jQuery for HTML manipulation.
-- The follow parameters for API request are customized by player upon app launch:
-  - Difficulty level from easy to difficult
-  - A choice of one of five quiz categories
-- The player has answers 10 questions (15 seconds to respond to each).
-- Once the game is over the player can choose to restart to play another round.
-- jQuery is used in this application for Ajax requests and DOM manipulation.
+### Fast-paced trivia game with Open Trivia DB integration
+  
+* This game leverages the Open Trivia DB API to generate question cards and using JavaScript logic and jQuery for HTML manipulation
 
 ## Built with:
 
-Front End     | Back End
-------------- | -------------
-HTML5         | JavaScript
-CSS3          | jQuery
+* JavaScript, jQuery, custom styling with CSS
 
+## How to:
 
-- Link to deployed page in header.
+### First, the player can select from the following settings:
+   * Difficulty level from easy to difficult
+   * One of five quiz categories
+   
+### Once the game has started:
+   * The player gets a random set of 10 questions (with 15 seconds to respond to each)
+   * Once the game is over the player can choose to restart to play another round to beat their highscore
+
+Deployed on GitHub pages:  
+https://pjhellstrom.github.io/TriviaGame/
